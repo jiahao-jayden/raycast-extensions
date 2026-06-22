@@ -1,0 +1,78 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "quick-secret-saver",
+  "title": "Quick Secret Saver",
+  "description": "Quickly save and retrieve free-text secrets like passwords, tokens, and notes.",
+  "icon": "extension-icon.png",
+  "author": "jayden0",
+  "categories": ["Productivity"],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "save",
+      "title": "Save Secret",
+      "subtitle": "Quick Secret Saver",
+      "description": "Manually create a new secret with a title and content.",
+      "mode": "view"
+    },
+    {
+      "name": "save-from-clipboard",
+      "title": "Save Secret from Clipboard",
+      "subtitle": "Quick Secret Saver",
+      "description": "Save the current clipboard text as a new secret.",
+      "mode": "view"
+    },
+    {
+      "name": "search",
+      "title": "Search Secrets",
+      "subtitle": "Quick Secret Saver",
+      "description": "Search, copy, view, edit, and delete saved secrets.",
+      "mode": "view"
+    },
+    {
+      "name": "sync",
+      "title": "Sync Secrets",
+      "subtitle": "Quick Secret Saver",
+      "description": "Sync secrets with a private GitHub gist (encrypted).",
+      "mode": "view",
+      "preferences": [
+        {
+          "name": "githubToken",
+          "title": "GitHub Token",
+          "description": "Personal access token with the 'gist' scope.",
+          "type": "password",
+          "required": true
+        },
+        {
+          "name": "gistId",
+          "title": "Gist ID",
+          "description": "ID of a private gist to sync into. Create an empty secret gist first, then paste its id here.",
+          "type": "textfield",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.78.0",
+    "@raycast/utils": "^1.17.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@types/react": "^19.0.10",
+    "eslint": "^8.57.0",
+    "@raycast/eslint-config": "^1.0.11",
+    "prettier": "^3.3.3",
+    "typescript": "^5.4.5",
+    "vitest": "^2.0.5"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "lint": "ray lint",
+    "fix-lint": "ray lint --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
